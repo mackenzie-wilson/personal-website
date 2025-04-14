@@ -27,23 +27,26 @@ export default function Home() {
   return (
     <>
       <div style={{
-        position: "absolute",
-        top: 20,
-        left: 20,
-        zIndex: 9999,
-        border: "3px solid lime",
-        backgroundColor: "black"
+        position: "fixed",
+        top: "20px",
+        left: "20px",
+        zIndex: 999999,
+        backgroundColor: "black",
+        padding: "10px",
+        border: "5px solid lime"
       }}>
+        <p style={{ color: "white", margin: 0 }}>Test Image:</p>
         <img
           src="/images/hero-background.png"
           alt="Test Image"
           style={{
-            width: "300px",
-            height: "300px",
-            display: "block",
+            width: "200px",
+            height: "200px",
+            display: "block"
           }}
         />
       </div>
+
 
       <div className="relative h-screen overflow-hidden">
         {/* Background Image */}
