@@ -50,7 +50,7 @@ export default function Home() {
 
       <div className="relative h-screen overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-black">
           <Image
             src={backgroundImage || "/placeholder.svg"}
             alt="Sunset landscape"
@@ -59,6 +59,7 @@ export default function Home() {
             className="object-cover"
           />
         </div>
+
 
         {/* Content Container */}
         <div className="relative z-10 h-screen flex flex-col">
