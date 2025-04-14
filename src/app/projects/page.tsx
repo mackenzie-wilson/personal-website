@@ -30,14 +30,14 @@ export default function Projects() {
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        {theme && (<Image
           src={theme === "dark" ? "/images/projects-background-dark.png" : "/images/projects-background.png"}
           alt="Workshop with view of city"
           fill
           priority
           className="object-cover"
           style={{ objectPosition: "center" }}
-        />
+        />)}
       </div>
 
       {/* Content Container */}

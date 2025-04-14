@@ -274,13 +274,13 @@ export default function Bookshelf() {
     <div className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        {theme && (<Image
           src={theme === "dark" ? "/images/bookshelf-background-dark.png" : "/images/library-background.png"}
           alt="Library with sunset view"
           fill
           priority
           className="object-cover"
-        />
+        />)}
       </div>
 
       {/* Content Container */}

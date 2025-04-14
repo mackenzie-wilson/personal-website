@@ -13,13 +13,14 @@ export default function Home() {
     <div className="relative h-screen overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={theme === "dark" ? "/images/about-background-dark.png" : "/images/hero-background.png"}
-          alt="Sunset landscape"
-          fill
-          priority
-          className="object-cover"
-        />
+        {theme &&
+          (<Image
+            src={theme === "dark" ? "/images/about-background-dark.png" : "/images/hero-background.png"}
+            alt="Sunset landscape"
+            fill
+            priority
+            className="object-cover"
+          />)}
       </div>
 
       {/* Content Container */}
@@ -112,7 +113,7 @@ export default function Home() {
                   the best way to learn is by building, so I take on projects that push me to explore software
                   development, product management, and design from end to end. My goal is to be well-rounded in the full
                   product development cycle—understanding not just how things work, but how they come together
-                  holistically. 
+                  holistically.
                 </p>
               </div>
             </motion.div>
