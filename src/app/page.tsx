@@ -13,9 +13,8 @@ export default function Home() {
 
   // Set light theme as default and ensure component is mounted before rendering
   useEffect(() => {
-    setTheme("light")
     setMounted(true)
-  }, [setTheme])
+  }, [])
 
   // Determine which image to show based on theme
   const backgroundImage = theme === "dark" ? "/images/about-background-dark.png" : "/images/hero-background.png"
