@@ -26,19 +26,8 @@ export default function Home() {
 
       {/* Render even before theme is loaded */}
       {/* Replace image only once theme is ready */}
-      <div className="absolute inset-0 z-0 bg-black w-full h-full">
-        <div className="relative w-full h-full">
-          {mounted && theme && (
-            <Image
-              src={theme === "dark" ? "/images/about-background-dark.png" : "/images/hero-background.png"}
-              alt="Sunset"
-              fill
-              priority
-              className="object-cover"
-            />
-          )}
-        </div>
-      </div>
+      <div className="absolute inset-0 z-0 bg-cover bg-center w-full h-full bg-[url('/images/hero-background.png')] dark:bg-[url('/images/about-background-dark.png')]" />
+
 
 
       {/* Content Container */}
