@@ -26,38 +26,19 @@ export default function Home() {
 
   return (
     <>
-      <div style={{
-        position: "fixed",
-        top: "20px",
-        left: "20px",
-        zIndex: 999999,
-        backgroundColor: "black",
-        padding: "10px",
-        border: "5px solid lime"
-      }}>
-        <p style={{ color: "white", margin: 0 }}>Test Image:</p>
-        <img
-          src="/images/hero-background.png"
-          alt="Test Image"
-          style={{
-            width: "200px",
-            height: "200px",
-            display: "block"
-          }}
-        />
-      </div>
-
 
       <div className="relative h-screen overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0 bg-black">
-          <Image
-            src={backgroundImage || "/placeholder.svg"}
-            alt="Sunset landscape"
-            fill
-            priority
-            className="object-cover"
-          />
+        <div className="absolute inset-0 z-0 bg-black w-full h-full">
+          <div className="relative w-full h-full">
+            <Image
+              src={backgroundImage || "/placeholder.svg"}
+              alt="Sunset landscape"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
         </div>
 
 
