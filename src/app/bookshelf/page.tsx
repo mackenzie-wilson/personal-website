@@ -273,9 +273,9 @@ export default function Bookshelf() {
 
   // Set light theme as default and ensure component is mounted before rendering
   useEffect(() => {
-    setTheme("light")
     setMounted(true)
-  }, [setTheme])
+  }, [])
+
 
   // Determine which image to show based on theme
   const backgroundImage = theme === "dark" ? "/images/bookshelf-background-dark.png" : "/images/library-background.png"
@@ -288,7 +288,7 @@ export default function Bookshelf() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src={backgroundImage || "/placeholder.svg"}
           alt="Library with sunset view"
