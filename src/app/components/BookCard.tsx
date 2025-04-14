@@ -20,8 +20,8 @@ const BookCard: React.FC<BookCardProps> = ({ title, author, imageUrl, review }) 
       transition={{ duration: 0.2 }}
     >
       <Image
-        src={imageUrl || "/placeholder.svg"}
-        alt={title}
+        src="/images/hero-background.png"
+        alt={title || "Book cover"}
         width={130}
         height={200}
         className="w-full h-48 object-cover"
