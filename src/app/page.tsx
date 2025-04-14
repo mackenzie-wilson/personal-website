@@ -19,25 +19,24 @@ export default function Home() {
   // Determine which image to show based on theme
   const backgroundImage = theme === "dark" ? "/images/about-background-dark.png" : "/images/hero-background.png"
 
-  // Don't render anything until mounted to prevent hydration mismatch
-  if (!mounted) {
-    return null
-  }
+
 
   return (
     <>
 
+      {/* Render even before theme is loaded */}
       <div className="relative h-screen overflow-hidden">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0 bg-black w-full h-full">
           <div className="relative w-full h-full">
-            <Image
-              src={backgroundImage || "/placeholder.svg"}
-              alt="Sunset landscape"
-              fill
-              priority
-              className="object-cover"
-            />
+            {mounted && theme && (
+              <Image
+                src={theme === "dark" ? "/images/about-background-dark.png" : "/images/hero-background.png"}
+                alt="Sunset landscape"
+                fill
+                priority
+                className="object-cover"
+              />
+            )}
           </div>
         </div>
 
