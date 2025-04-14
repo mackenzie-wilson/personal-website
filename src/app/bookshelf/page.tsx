@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useTheme } from "next-themes"
@@ -269,18 +269,33 @@ const Collapsible = ({ category }: { category: BookCategory }) => {
 
 export default function Bookshelf() {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Set light theme as default and ensure component is mounted before rendering
+  useEffect(() => {
+    setTheme("light")
+    setMounted(true)
+  }, [setTheme])
+
+  // Determine which image to show based on theme
+  const backgroundImage = theme === "dark" ? "/images/bookshelf-background-dark.png" : "/images/library-background.png"
+
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return null
+  }
 
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        {theme && (<Image
-          src={theme === "dark" ? "/images/bookshelf-background-dark.png" : "/images/library-background.png"}
+        <Image
+          src={backgroundImage || "/placeholder.svg"}
           alt="Library with sunset view"
           fill
           priority
           className="object-cover"
-        />)}
+        />
       </div>
 
       {/* Content Container */}

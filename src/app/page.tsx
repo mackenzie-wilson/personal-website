@@ -5,22 +5,37 @@ import Link from "next/link"
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
 import { Moon, Sun, Mail } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export default function Home() {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Set light theme as default and ensure component is mounted before rendering
+  useEffect(() => {
+    setTheme("light")
+    setMounted(true)
+  }, [setTheme])
+
+  // Determine which image to show based on theme
+  const backgroundImage = theme === "dark" ? "/images/about-background-dark.png" : "/images/hero-background.png"
+
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return null
+  }
 
   return (
     <div className="relative h-screen overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        {theme &&
-          (<Image
-            src={theme === "dark" ? "/images/about-background-dark.png" : "/images/hero-background.png"}
-            alt="Sunset landscape"
-            fill
-            priority
-            className="object-cover"
-          />)}
+        <Image
+          src={backgroundImage || "/placeholder.svg"}
+          alt="Sunset landscape"
+          fill
+          priority
+          className="object-cover"
+        />
       </div>
 
       {/* Content Container */}

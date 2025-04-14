@@ -5,6 +5,7 @@ import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
 import { Moon, Sun, Mail } from "lucide-react"
 import ProjectCard from "../components/ProjectCard"
+import { useEffect, useState } from "react"
 
 const projects = [
   {
@@ -25,19 +26,34 @@ const projects = [
 
 export default function Projects() {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Set light theme as default and ensure component is mounted before rendering
+  useEffect(() => {
+    setTheme("light")
+    setMounted(true)
+  }, [setTheme])
+
+  // Determine which image to show based on theme
+  const backgroundImage = theme === "dark" ? "/images/projects-background-dark.png" : "/images/projects-background.png"
+
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return null
+  }
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        {theme && (<Image
-          src={theme === "dark" ? "/images/projects-background-dark.png" : "/images/projects-background.png"}
+        <Image
+          src={backgroundImage || "/placeholder.svg"}
           alt="Workshop with view of city"
           fill
           priority
           className="object-cover"
           style={{ objectPosition: "center" }}
-        />)}
+        />
       </div>
 
       {/* Content Container */}
@@ -96,8 +112,8 @@ export default function Projects() {
               transition={{ delay: 0.4 }}
             >
               <p>
-                Here you'll find a collection of my work spanning software development,
-                design, and creative experiments.
+                Here you'll find a collection of my work spanning software development, design, and creative
+                experiments.
               </p>
               <p>
                 Each project represents a problem I wanted to solve or a skill I wanted to learn. Feel free to explore
