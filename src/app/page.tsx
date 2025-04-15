@@ -27,7 +27,7 @@ export default function Home() {
 
       {/* Render even before theme is loaded */}
       {/* Replace image only once theme is ready */}
-      <div className="absolute inset-0 z-0">
+      {/*} <div className="absolute inset-0 z-0">
         <Image
           src={
             mounted && theme === "dark"
@@ -39,7 +39,19 @@ export default function Home() {
           priority
           className="object-cover pointer-events-none"
         />
-      </div>
+      </div> */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `url(${mounted && theme === "dark"
+            ? "/images/about-background-dark.png"
+            : "/images/hero-background.png"})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: "100%",
+          height: "100%",
+        }}
+      ></div>
       {/* Content Container */}
       <div className="relative z-10 h-screen flex flex-col">
         {/* Navigation */}
