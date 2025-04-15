@@ -1,4 +1,4 @@
-"use client"
+{/*"use client"
 
 import type React from "react"
 
@@ -36,3 +36,4 @@ const BookCard: React.FC<BookCardProps> = ({ title, author, imageUrl, review }) 
 }
 
 export default BookCard
+*/}
