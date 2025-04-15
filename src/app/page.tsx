@@ -23,6 +23,20 @@ export default function Home() {
 
   return (
     <>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          backgroundImage: "url('/images/hero-background.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          zIndex: -1,
+          pointerEvents: "none"
+        }}
+      />
 
       {/* Render even before theme is loaded */}
       {/* Replace image only once theme is ready */}

@@ -45,7 +45,7 @@ export default function Projects() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src={backgroundImage || "/placeholder.svg"}
           alt="Workshop with view of city"
