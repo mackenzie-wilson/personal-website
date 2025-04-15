@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Mackenzie Wilson",
   description: "Welcome to my personal website showcasing my projects and books I've read.",
   icons: {
-    icon: '/favicon.png',
+    icon: '../favicon.png',
   },
 }
 
