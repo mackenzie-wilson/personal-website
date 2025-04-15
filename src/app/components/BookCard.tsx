@@ -42,5 +42,5 @@ export default BookCard
 
 // Completely replace the component with a stub that returns nothing
 export default function BookCard() {
-  return null
+  return <></>
 }
