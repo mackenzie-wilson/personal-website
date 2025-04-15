@@ -37,3 +37,10 @@ const BookCard: React.FC<BookCardProps> = ({ title, author, imageUrl, review }) 
 
 export default BookCard
 */}
+
+"use client"
+
+// Completely replace the component with a stub that returns nothing
+export default function BookCard() {
+  return null
+}
