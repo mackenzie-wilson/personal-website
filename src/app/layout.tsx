@@ -8,8 +8,11 @@ import ThemeProvider from "./components/ThemeProvider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Mackenzie Wilson - Personal Website",
+  title: "Mackenzie Wilson",
   description: "Welcome to my personal website showcasing my projects and books I've read.",
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
